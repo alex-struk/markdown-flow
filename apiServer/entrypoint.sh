@@ -1,0 +1,2 @@
+node init
+npm start

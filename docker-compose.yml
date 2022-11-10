@@ -1,7 +1,7 @@
 version: '3.9'
 
 services:
-  mysqldb:
+  markdown-flow-db:
     build: ./db/
     env_file: ./.env
     environment:
@@ -15,13 +15,13 @@ services:
       - markdown-flow-db:/var/lib/mysql
   app:
     depends_on:
-      - mysqldb
+      - markdown-flow-db
     build: ./apiServer/
     env_file: ./.env
     ports:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
     environment:
-      - DB_HOST=mysqldb
+      - DB_HOST=markdown-flow-db
       - DB_USER=$MYSQLDB_USER
       - DB_PASSWORD=$MYSQLDB_ROOT_PASSWORD
       - DB_NAME=$MYSQLDB_DATABASE

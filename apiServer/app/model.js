@@ -1,4 +1,4 @@
-const sql = require("./db.js");
+const {connection,connectionRead} = require("./db.js");
 
 // constructor
 const Model = function(model) {
@@ -8,7 +8,7 @@ const Model = function(model) {
 };
 
 Model.create = (newRecord, result) => {
-  sql.query("INSERT INTO content SET ?", newRecord, (err, res) => {
+  connection.query("INSERT INTO content SET ?", newRecord, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -21,7 +21,7 @@ Model.create = (newRecord, result) => {
 };
 
 Model.findByName = (name, result) => {
-  sql.query(`SELECT * FROM content WHERE name = '${name}'`, (err, res) => {
+  connectionRead.query(`SELECT * FROM content WHERE name = '${name}'`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -63,7 +63,7 @@ Model.getAll = ( result) => {
   let query = "SELECT * FROM content";
 
 
-  sql.query(query, (err, res) => {
+  connectionRead.query(query, (err, res) => {
     if (err) {
     //   console.log("error: ", err);
       result(null, err);
@@ -89,7 +89,7 @@ Model.getAll = ( result) => {
 // };
 
 Model.updateContentById = (id, content, result) => {
-  sql.query(
+  connection.query(
     "UPDATE content SET content = ? WHERE id = ?",
     [content, id],
     (err, res) => {
@@ -133,7 +133,7 @@ Model.updateContentById = (id, content, result) => {
 // };
 
 Model.removeAll = result => {
-  sql.query("DELETE FROM content", (err, res) => {
+  connection.query("DELETE FROM content", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);

@@ -9,4 +9,12 @@ var connection = mysql.createPool({
   port:3306
 });
 
-module.exports = connection;
+var connectionRead = mysql.createPool({
+  host: dbConfig.READHOST,
+  user: dbConfig.USER,
+  password: dbConfig.PASSWORD,
+  database: dbConfig.DB,
+  port:3306
+});
+
+module.exports = {connection:connection,connectionRead:connectionRead};

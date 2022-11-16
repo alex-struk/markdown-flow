@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: markdown-flow-db
+  name: mf-db
   labels:
-    app: markdown-flow-db
-    app.kubernetes.io/name: markdown-flow-db
+    app: mf-db
+    app.kubernetes.io/name: mf-db
 data:
   primary.cnf: |
     # Apply this config only on the primary.

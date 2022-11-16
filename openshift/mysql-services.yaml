@@ -2,32 +2,32 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: markdown-flow-db
+  name: mf-db
   labels:
-    app: markdown-flow-db
-    app.kubernetes.io/name: markdown-flow-db
+    app: mf-db
+    app.kubernetes.io/name: mf-db
 spec:
   publishNotReadyAddresses: true
   ports:
-  - name: markdown-flow-db
+  - name: mf-db
     port: 3306
   clusterIP: None
   selector:
-    app: markdown-flow-db
+    app: mf-db
 ---
 # Client service for connecting to any MySQL instance for reads.
 # For writes, you must instead connect to the primary: mysql-0.mysql.
 apiVersion: v1
 kind: Service
 metadata:
-  name: markdown-flow-db-read
+  name: mf-db-read
   labels:
-    app: markdown-flow-db
-    app.kubernetes.io/name: markdown-flow-db
+    app: mf-db
+    app.kubernetes.io/name: mf-db
     readonly: "true"
 spec:
   ports:
-  - name: markdown-flow-db
+  - name: mf-db
     port: 3306
   selector:
-    app: markdown-flow-db
+    app: mf-db

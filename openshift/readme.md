@@ -1,11 +1,11 @@
 # Build db app on OC
-oc -n c0cce6-tools new-build https://github.com/alex-struk/markdown-flow/ --context-dir=db --name=markdown-flow-db
+oc -n c0cce6-tools new-build https://github.com/alex-struk/markdown-flow/ --context-dir=db --name=mf-db
 
 # retagging the image stream from latest to dev
-oc -n c0cce6-tools tag markdown-flow-db:latest markdown-flow-db:dev
+oc -n c0cce6-tools tag mf-db:latest mf-db:dev
 
 # deploy db
-oc -n c0cce6-dev new-app c0cce6-tools/markdown-flow-db:dev --name=markdown-flow-db
+oc -n c0cce6-dev new-app c0cce6-tools/mf-db:dev --name=mf-db
 
 
 # API APP
@@ -37,7 +37,7 @@ oc apply -f mysql-services.yaml
 oc apply -f mysql-statefulset.yaml
 
 # watch progress
-oc get pods -l app=markdown-flow-db --watch
+oc get pods -l app=mf-db --watch
 
 # run debug pod
 

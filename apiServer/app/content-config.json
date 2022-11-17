@@ -1,5 +1,6 @@
 {
     "content":[
-        {"name":"about","content_address":"https://raw.githubusercontent.com/bcgov/digital.gov.bc.ca/markdown-flow/react-frontend/content/about.md"}
+        {"name":"about","content_address":"https://raw.githubusercontent.com/bcgov/digital.gov.bc.ca/markdown-flow/react-frontend/content/about.md"},
+        {"name":"products_and_services","content_address":"http://wordpress-c0cce6-dev.apps.silver.devops.gov.bc.ca/wp-json/wp/v2/pages?slug=products_and_services"}
     ]
 }

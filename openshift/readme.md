@@ -24,6 +24,8 @@ oc -n c0cce6-dev new-app c0cce6-tools/markdown-flow-api:dev --name=markdown-flow
 # create http route. Todo: make https?
 oc -n c0cce6-dev expose svc/markdown-flow-api
 
+# to create https route:
+oc -n c0cce6-dev create route edge markdown-flow-api --service=markdown-flow-api --insecure-policy=Redirect
 
 # create replicata set for the databases (https://kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/)
 

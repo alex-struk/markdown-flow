@@ -3,9 +3,16 @@ const cors = require("cors");
 
 const app = express();
 
+var whitelist = ["http://localhost:3000", 'https://digital-gov-frontend-pr-1119-c0cce6-dev.apps.silver.devops.gov.bc.ca']
 var corsOptions = {
-  origin: "http://localhost:3000"
-};
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
 
 app.use(cors(corsOptions));
 

@@ -3,7 +3,8 @@ const cors = require("cors");
 
 const app = express();
 
-var whitelist = ["http://localhost:3000", 'https://digital-gov-frontend-pr-1119-c0cce6-dev.apps.silver.devops.gov.bc.ca']
+var whitelist = ["http://localhost:3000", 'https://digital-gov-frontend-pr-1119-c0cce6-dev.apps.silver.devops.gov.bc.ca', 
+'http://digital-gov-frontend-pr-1119-c0cce6-dev.apps.silver.devops.gov.bc.ca']
 var corsOptions = {
   origin: function (origin, callback) {
 
